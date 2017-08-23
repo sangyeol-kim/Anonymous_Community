@@ -8,6 +8,8 @@
 <p>
   <strong>Content:</strong>
   <%= @post.content %>
+  
+  <%= render "comments/comments" %>
 </p>
 <% if current_user.id == @post.user.id %>
 <%= link_to 'Edit', edit_post_path(@post) %> |

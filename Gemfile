@@ -56,3 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise' #회원가입
 gem 'rolify'
 gem 'cancancan'
+gem 'simple_form'
+gem 'font-awesome-rails'
+gem 'jquery-rails'
+gem 'bootstrap-sass'
