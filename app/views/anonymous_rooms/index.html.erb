@@ -1,0 +1,19 @@
+<div class="container"><h1 style="margin-top: 30px; text-align: center;">익명인 광장</h1>
+
+  <p style="text-align: center;", class="lead"><%= link_to '익명방 만들기', new_anonymous_room_path, style: 'color: #FFF8DC', class: 'btn btn-warning' %></p>
+    <div style="margin-left: 37%;">
+      <ul>
+        <% @anonymous_rooms.each do |vote| %>
+            <li><p style="margin-top: 20px;"><%= link_to "#{vote.title}방 입장!", anonymous_room_path(vote), style: 'font-size: 20px;'%></p></li>
+              <%= link_to "이 방 좋아요", like_anonymous_room_path(vote), method: :put, style: 'width: 110px; color: #FFF8DC', class: "btn btn-info" %>
+              <%= link_to "이 방 싫어요", dislike_anonymous_room_path(vote), method: :put, style: 'width: 110px; color: #FFF8DC', class: "btn btn-danger" %>
+              <span class="progress hidden-xs-down" style="margin-top: 10px; margin-bottom: 10px;width: 34.1%;">
+                <span class="progress-bar bg-info" role="progressbar" style="width: <%= vote.get_upvotes.size.to_f / vote.votes_for.size * 100 %>%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></span>
+                <span class="progress-bar bg-danger" role="progressbar" style="width: <%= vote.get_downvotes.size.to_f / vote.votes_for.size * 100 %>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></span>
+              </span>
+        <% end %>
+        <br><p style="margin-left: 60px;"><%= link_to "게시판가기" , posts_path, style: "font-size: 15px; color: black", class: "btn btn-secondary" %></p>
+      </ul>
+    </div>
+    
+</div>

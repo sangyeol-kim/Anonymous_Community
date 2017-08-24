@@ -1,0 +1,13 @@
+<div style="margin-left: 40%; margin-top: 30px;">
+<h1 style="margin-left: 50px;">익명방 생성하기</h1>
+
+<%= form_for @anonymous_room do |f| %>
+  <div style="margin-top: 15px; text-align: center; width: 40%;", class="form-group">
+    <%= f.label :모두가_보는_채팅방_이름입니다, class: "alert alert-danger"%>
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <%= f.submit "생성!", style: "margin-left: 16%;", class: 'btn btn-primary' %>
+<% end %>
+</div>

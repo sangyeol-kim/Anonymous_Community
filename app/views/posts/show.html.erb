@@ -12,6 +12,6 @@
   <%= render "comments/comments" %>
 </p>
 <% if current_user.id == @post.user.id %>
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to '수정하기', edit_post_path(@post) %> |
 <% end %>
-<%= link_to 'Back', posts_path %>
+<%= link_to '뒤로가기', posts_path %>

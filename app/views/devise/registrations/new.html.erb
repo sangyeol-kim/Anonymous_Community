@@ -20,6 +20,11 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  
+  <div class="field">
+    <%= f.label "닉네임" %><br/>
+    <%= f.text_field :nickname, :required => true %><br/>
+  </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

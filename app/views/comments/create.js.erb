@@ -2,5 +2,5 @@
   $('<%=j render @comment %>').appendTo($("#comments_list_<%=@post.id %>")).hide().fadeIn('fast');
   $("#comments_form_<%=@post.id %> form")[0].reset();
 <% else %>
-  alert("Please submit after commenting...");
+  alert("댓글이 작성중입니다.");
 <% end %>

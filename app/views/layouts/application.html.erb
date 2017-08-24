@@ -9,6 +9,21 @@
   </head>
 
   <body>
+    <!-- Image and text -->
+    <nav style="background-color: #2F4F4F; height: 45px;", class="navbar navbar-light bg-faded">
+      <%=link_to "Anonymous Chat Community", posts_path, style: "color: white;" %>
+        <% if user_signed_in? %>
+          <span style="color: #00FFFF; margin-left: 67%;"><%= current_user.nickname %>님</span>
+          <%= link_to '정보수정', edit_user_registration_path, style: "color: white;" %>
+          <%= link_to '로그아웃', destroy_user_session_path, method: 'delete', style: "color: white;" %>
+        <% else %>
+          <%= link_to '회원가입', new_user_registration_path, style: "color: white;" %>
+          <%= link_to '로그인', new_user_session_path, style: "color: white;" %>
+        <% end %>
+
+    </nav>
+    
+    
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,18 @@
+<div style="margin-top: 5px; margin-left: 30%; margin-right: 30%;">
+<h3 style="text-align: center;">이곳은 "<%= @anonymous_room.title %>" 방입니다.</h3><br>
+
+<div style="border: 1px dotted #48BAE4; margin: auto; width: 108%; text-align: center;", id="messages", data-anonymous-room-id="<%= @anonymous_room.id %>">
+      <%= render @anonymous_room.messages %>
+</div>
+
+<%= form_for @message, url: '#' do |f| %>
+  <div style="margin: auto; text-align: center; width: 45%;", class="form-group">
+    <%= f.label :성숙한_시민의식을_보여주세요, class: "alert alert-info" %>
+    <%= f.text_area :message, class: 'form-control', style: "border: 1px dotted #2F4F4F;" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+      <small class="text-muted">1000자 미안으로 작성해주세요</small>
+    <%= f.submit "전송!", class: 'btn btn-primary btn-lg' %>
+    <p><%= link_to "뒤로가기" , anonymous_rooms_path, style: "font-size: 15px; color: black" %></p>
+  </div>
+<% end %>
+</div>
