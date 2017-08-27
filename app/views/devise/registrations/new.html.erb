@@ -1,0 +1,37 @@
+<div class="container">
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, data: {confirm:"이대로 회원가입 하시겠습니까?"}, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :이메일%><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :비밀번호 %>
+    <% if @minimum_password_length %>
+    <em>(최소 <%= @minimum_password_length %> 자리로 작성)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :비밀번호_확인 %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :닉네임 %><br />
+    <%= f.text_field :nickname %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" ,class: "btn right"%>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+</div>

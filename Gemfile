@@ -65,3 +65,4 @@ gem 'rails_db'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'nokogiri'
 gem "kaminari"
+gem 'devise-i18n'

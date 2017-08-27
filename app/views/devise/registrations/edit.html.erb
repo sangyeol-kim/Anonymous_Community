@@ -1,0 +1,50 @@
+<div class="container">
+  <h2><%= current_user.nickname %> 님의 회원정보 수정</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :이메일 %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :새로운_비밀번호 %> <i>(변경하지 않을거면 작성하지 않아도 됩니다.)</i><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em>(최소 <%= @minimum_password_length %> 자리로 작성)</em>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :새로운_비밀번호_확인 %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :현재_비밀번호 %> <i>(비밀번호 변경을 위해선 현재 비밀번호가 필요합니다.)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :닉네임 %><br />
+      <%= f.text_field :nickname %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "수정", class: "btn right"%>
+    </div>
+  <% end %>
+  <br>
+  
+  <p><%= button_to "탈퇴하기", registration_path(resource_name),class: "btn right",
+                                data: { confirm: "정말 탈퇴하시겠습니까?" }, method: :delete, style: "color:white; background: #FF4500;" %></p>
+
+<%= link_to "돌아가기", :back %>
+</div>

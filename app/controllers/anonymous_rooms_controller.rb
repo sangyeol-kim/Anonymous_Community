@@ -17,7 +17,7 @@ class AnonymousRoomsController < ApplicationController
     @anonymous_room = current_user.anonymous_rooms.build(anonymous_room_params)
     if @anonymous_room.save
       flash[:success] = 'Chat room added!'
-      redirect_to anonymous_rooms_path
+      redirect_to anonymous_room_path(@anonymous_room)
     else
       render 'new'
     end

@@ -6,7 +6,7 @@
 </div>
 <div style="text-align: center;">
 <div class="alert alert-warning" role="alert">
-<% @new_currency.each do |cur| %>
+<% @new_currency.each_with_index do |cur| %>
 <p><%= cur %></p>
 <% end %>
 </div>
