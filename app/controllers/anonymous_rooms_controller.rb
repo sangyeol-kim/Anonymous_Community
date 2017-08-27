@@ -1,6 +1,12 @@
+require 'nokogiri'
+require 'open-uri'
 class AnonymousRoomsController < ApplicationController
   def index
-    @anonymous_rooms = AnonymousRoom.all
+    @anonymous_rooms = AnonymousRoom.page params[:page]
+    url = "http://news.nate.com/rank/interest?sc=sisa"
+    doc = Nokogiri::HTML(open(url))
+    currency = doc.css('div.postRankSubjectList.f_clear > div.mduSubjectList.f_clear')
+    @new_currency = currency.map { |cur| cur.text }
   end
 
   def new

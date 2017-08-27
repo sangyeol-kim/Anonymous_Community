@@ -4,6 +4,6 @@ class MessagesController < ApplicationController
     private
     
     def users
-    @a = current_user.email
+    @a = current_user.id
   end
 end

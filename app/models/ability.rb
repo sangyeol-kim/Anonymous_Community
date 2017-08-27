@@ -10,6 +10,7 @@ class Ability
       else
         can [:read, :create, :upvote, :downvote], :all
         can [:update, :destroy], Post, user_id: user.id
+        can :destroy, Comment, user_id: user.id
       end
     #
     # The first argument to `can` is the action you are giving the user

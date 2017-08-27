@@ -9,7 +9,9 @@ class User < ApplicationRecord
   has_many :posts
   has_many :anonymous_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
-         
+  has_many :comments
+  validates_uniqueness_of :nickname
+  
   def name
     email.split('@')[0]
   end

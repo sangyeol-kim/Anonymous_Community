@@ -1,28 +1,18 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :제목 %>
-    <%= form.text_field :title, id: :post_title %>
-    <%= form.hidden_field :user_id, value: current_user.id %>
+<div class="container" style="margin-top: 30px; width: 40%;" >
+<%= simple_form_for(@post) do |f| %>
+  <div class="form-inputs">
+      <%= f.label :제목 %>
+      <%= f.text_field :title, id: :post_title, class: "form-control" %><br/>
+      <%= f.label :내용 %>
+      <%= f.text_area :content, id: :post_content, class: "form-control tinymce", rows: "10" %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
 
-  <div class="field">
-    <%= form.label :내용 %>
-    <%= form.text_area :content, id: :post_content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit value="작성"%>
+  <div class="actions" style="margin-top: 20px;" align="center">
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= link_to '목록', posts_path, style: "color:white;",class: "btn btn-info" %>
   </div>
 <% end %>
+</div>

@@ -1,10 +1,17 @@
+<% if user_signed_in? %>
+
 <div id="comments_form_<%=comment.post.id%>">
   <%= simple_form_for([comment.post, comment], remote: true ) do | f | %>
     <div class='form-inputs'>
-      <%= f.input :comment, label: false, placeholder: '댓글을 입력해주세요', input_html: { rows: 5 } %>
+      <%= f.input :comment, label: false, placeholder: '당신의 이야기를 남겨주세요.', input_html: { rows: 3, class: "form-control"} %>
+      <% f.number_field :user_id %>    
     </div>
-    <div class='form-actions'>
-      <%= f.button :submit, value="작성"%>
+    <div class="form-actions" align="right" style="margin-top: 20px;">
+      <%= f.button :submit, class: "btn btn-info" %>
     </div>
   <% end %>
 </div>
+
+<% else %>
+로그인 후 댓글 입력이 가능합니다.
+<% end %>
