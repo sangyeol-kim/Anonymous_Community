@@ -1,7 +1,7 @@
 Rails.application.configure do
-  config.action_cable.allowed_request_origins = ['https://warm-escarpment-89573.herokuapp.com',
-                                               'http://warm-escarpment-89573.herokuapp.com']
-  config.action_cable.url = "wss://warm-escarpment-89573.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://anonymous-community.herokuapp.com',
+                                               'http://anonymous-community.herokuapp.com']
+  config.action_cable.url = "wss://anonymous-community.herokuapp.com/cable"
   config.assets.compile = true
   # Settings specified here will take precedence over those in config/application.rb.
 
