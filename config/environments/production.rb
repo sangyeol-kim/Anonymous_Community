@@ -2,8 +2,6 @@ Rails.application.configure do
   config.action_cable.allowed_request_origins = ['https://warm-escarpment-89573.herokuapp.com',
                                                'http://warm-escarpment-89573.herokuapp.com']
   config.action_cable.url = "wss://warm-escarpment-89573.herokuapp.com/cable"
-  config.serve_static_files = true
-  RAILS_ENV=production rake assets:precompile
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
