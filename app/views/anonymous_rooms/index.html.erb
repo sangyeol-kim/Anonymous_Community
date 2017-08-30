@@ -14,7 +14,7 @@
   <p style="text-align: center;"><%= link_to '익명방 만들기', new_anonymous_room_path, style: 'color: #FFF8DC', class: 'btn btn-warning' %></p>
     <div align="center">
         <% @anonymous_rooms.each do |vote| %>
-            <p style="margin-top: 20px;"><%= link_to "#{vote.title}방 입장!", anonymous_room_path(vote), style: 'font-size: 20px;'%></p>
+            <p style="margin-top: 20px;"><%= link_to "#{vote.title}", anonymous_room_path(vote), style: 'font-size: 20px;'%></p>
               <%= link_to "이 방 좋아요", like_anonymous_room_path(vote), method: :put, style: 'width: 110px; color: #FFF8DC', class: "btn btn-info" %>
               <%= link_to "이 방 싫어요", dislike_anonymous_room_path(vote), method: :put, style: 'width: 110px; color: #FFF8DC', class: "btn btn-danger" %>
               <span class="progress hidden-xs-down" style="margin-top: 10px; margin-bottom: 10px; width: 25%;">
