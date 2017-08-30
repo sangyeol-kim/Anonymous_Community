@@ -1,4 +1,6 @@
 Rails.application.configure do
+  Rails.application.config.action_cable.disable_request_forgery_protection = true
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
